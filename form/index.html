@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.4/jquery.validate.min.js"
+        integrity="sha512-FOhq9HThdn7ltbK8abmGn60A/EMtEzIzv1rvuh+DqzJtSGq8BRdEN0U+j0iKEIffiw/yEtVuladk6rsG4X6Uqg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.min.js"
+        integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css"
+        integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+
+</head>
+
+
+
+
+<body>
+    <div class="jumbotron">
+        <h1 class="display-4">Form</h1>
+    </div>
+    <form id="form">
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="firstname">First name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="lastname">Last name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" name="city" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="state">State</label>
+                <select class="custom-select" id="state" name="state" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option>...</option>
+                </select>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="zip">Zip</label>
+                <input type="text" class="form-control" id="zip" name="zip" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="agree" name="agree" required>
+                <label class="form-check-label" for="agree">
+                    Agree to terms and conditions
+                </label>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" id="submitbutton">Submit form</button>
+    </form>
+
+</body>
+
+</html>
+<script>
+    $(document).ready(function () {
+        $("#form").validate({
+            messages: {
+                firstname: "Please enter your first name",
+                lastname: "Please enter your last name",
+                city: "Please enter a valid city",
+                zip: "Please enter a valid zip code",
+                state: "Please enter a state",
+                agree: "Please accept our policy"
+            },
+            errorElement: "div",
+            errorClass: "invalid-feedback",
+
+            highlight: function (element, errorClass, validClass) {
+                $(element).closest(".form-control, .form-check-input, .custom-select").addClass("is-invalid").removeClass("is-valid");
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).closest(".form-control, .form-check-input, .custom-select").addClass("is-valid").removeClass("is-invalid");
+            },
+            submitHandler: function (form) {
+                window.location = "/form/success";
+            }
+        });
+
+    })
+</script>
