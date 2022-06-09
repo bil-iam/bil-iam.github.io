@@ -26,7 +26,7 @@ foreach ($keys as $k) {
         <div class="form-group row">
             <label for="first_name" class="col-sm-2 col-form-label">First name</label>
             <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="first_name" value=<?= $lastname ?>>
+                <input type="text" readonly class="form-control-plaintext" id="first_name" value=<?= $firstname ?>>
             </div>
         </div>
         <div class="form-group row">
