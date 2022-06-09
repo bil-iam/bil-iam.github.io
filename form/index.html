@@ -28,7 +28,7 @@
     <div class="jumbotron">
         <h1 class="display-4">Form</h1>
     </div>
-    <form id="form">
+    <form id="form" action="http://192.168.0.55/form/thank_you.php" method="post">
         <div class="form-row">
             <div class="col-md-6 mb-3">
                 <label for="firstname">First name</label>
@@ -108,9 +108,7 @@
             unhighlight: function (element, errorClass, validClass) {
                 $(element).closest(".form-control, .form-check-input, .custom-select").addClass("is-valid").removeClass("is-invalid");
             },
-            submitHandler: function (form) {
-                window.location = "/form/success";
-            }
+            
         });
 
     })
